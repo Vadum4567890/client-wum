@@ -4,10 +4,10 @@
 .mainblock {
   display: flex;
   flex-wrap: wrap;
-  margin: 5px 0px 35px 30px;
+  margin: 5px 0px 35px -3px;
   max-width: 883px;
   max-height: 700px;
-  background-color: #010103;
+  background-color: #fff;
   padding-top: 35px;
   padding-left: 46px;
 }
@@ -97,12 +97,14 @@
 
 
 
-.secondpart {
+.secondpart img{
   justify-content: center;
   align-items: center;
   min-width: 314px;
   height: 433px;
+  border-radius: 20px;
 }
+
 
 .thirdpart {
   width: 269px;
@@ -175,6 +177,7 @@
   justify-content: center;
   width: 254px;
   height: 232px;
+  background-color: #000;
 }
 
 .fifthpart {
@@ -199,6 +202,7 @@
   padding: 40px 20px 60px 22px;
   display: flex;
   flex-direction: row;
+  background-color: #000;
 }
 .sixthpart__elements {
   width: 227px;

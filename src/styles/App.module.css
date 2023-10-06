@@ -3,10 +3,12 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
+    background-color: #fff;
 }   
 
 .container {
     display: flex;
     flex-direction: row;
+    margin: 0px auto;
     background-color: #fff;
 }

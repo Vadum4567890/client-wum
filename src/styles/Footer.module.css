@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   padding: 40px 0px 45px 95px;
   background-color: #242424;
+  justify-content: center;
 }
 
 .infoblock {

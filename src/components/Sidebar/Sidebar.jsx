@@ -20,10 +20,12 @@ import CARBONTAG from '../../images/sidebar/carbon_tag.svg'
 
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes';
+// import { useSelector } from 'react-redux'
 
 
 
 const Sidebar = () => {
+  // const { list } = useSelector(({categories}) => categories) ;
   return (
     <>
       <aside className={styles.asidebar}>

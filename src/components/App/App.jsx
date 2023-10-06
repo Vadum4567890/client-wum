@@ -6,12 +6,13 @@ import Sidebar from "../Sidebar/Sidebar";
 
 import styles from '../../styles/App.module.css';
 import Novelty from "../Novelty/Novelty";
+import UserForm  from "../User/UserForm";
 
 const App = () => {
     return(
         <div className={styles.App}>
             <Header />
-            
+            <UserForm/>
             <div className={styles.container}>
                 <Sidebar />
                 <Novelty />
@@ -19,8 +20,8 @@ const App = () => {
             <div className={styles.container}>
                 <AppRoutes />
             </div>
-            
             <Footer />
+          
         </div>
     )
 }
