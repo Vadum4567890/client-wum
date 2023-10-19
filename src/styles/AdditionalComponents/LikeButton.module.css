@@ -1,0 +1,8 @@
+.likeButton {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 2.772px 0.942px 2.772px 0.943px;
+    justify-content: center;
+    align-items: center;
+}

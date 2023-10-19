@@ -2,23 +2,27 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 274px;
+  height: 262px;
   flex-wrap: wrap;
-  padding: 40px 0px 45px 95px;
+  padding: 40px 0px 45px 0px;
   background-color: #242424;
   justify-content: center;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
 .infoblock {
   display: flex;
-  width: 621px;
+  width: 921px;
   justify-content: space-between;
   /* margin: 40px 0px 45px 95px; */
-  
+  gap: 20px;
 }
 
 .rightsleft {
-
   font-size: 16px;
   line-height: 12px;
   width: 299px;
@@ -43,12 +47,12 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: 0.48px;
+  margin-left: 80px;
 }
 
 .customers {
   margin-bottom: 28px;
-  color: #FFF;
+  color: #A1A1A1;
   font-family: "Montserrat";
   font-size: 16px;
   font-style: normal;
@@ -60,7 +64,7 @@
 
 .aboutus {
   margin-bottom: 28px;
-  color: #FFF;
+  color: #A1A1A1;
   font-family: "Montserrat";
   font-size: 16px;
   font-style: normal;
@@ -74,15 +78,16 @@
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 400;
-  color: #FFF;
+}
+a {
+  color: #A1A1A1;
 }
 
 .links {
   display: flex;
-  margin-top: 35px;
   justify-content: space-between;
   align-items: center;
-  
+  gap: 20px;
 }
 .elements:hover {
   text-decoration: underline;

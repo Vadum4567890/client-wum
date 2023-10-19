@@ -1,0 +1,18 @@
+  button {
+    background-color: transparent;
+    outline: none;
+  }
+  .on {
+    color: #eccc17;
+  }
+  .starRating img {
+    width: 11px;
+
+  }
+  .off {
+    color: #fff;
+  }
+
+  .starRating {
+    margin-left: 12px;
+  }

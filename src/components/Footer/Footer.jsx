@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from '../../styles/Footer.module.css';
 
-import YOUTUBE from '../../images/iyoutube.svg';
-import TELEGRAM from '../../images/itelegram.svg';
-import FACEBOOK from '../../images/ifacebook.svg';
-import INSTAGRAM from '../../images/iinstagram.svg';
+import TELEGRAM from '../../images/footer/itelegram.svg';
+import FACEBOOK from '../../images/footer/ifacebook.svg';
+import INSTAGRAM from '../../images/footer/iinstagram.svg';
+import LOGO from '../../images/logo.svg';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
@@ -13,6 +13,11 @@ const Footer = () => {
     <>
         <section className={styles.footer}>
             <div className={styles.infoblock}>
+                <div className={styles.logo}>
+                    <Link to={ROUTES.HOME}> 
+                        <img src={LOGO} alt="WUM" />
+                    </Link>
+                </div>
                 <div className={styles.rightsleft }>
                     <div className={styles.customers}>
                         <p>Покупцям</p>
@@ -41,11 +46,7 @@ const Footer = () => {
            
             <div className={styles.socials}>   
                 <div className={styles.socialsinfo}>
-                    <p>Стежте за нами:</p> 
                     <div className={styles.links}>
-                        <a href='https://youtube.com'>
-                            <img src={YOUTUBE} alt="" />
-                        </a>
                         <a href='https://telegram.com'>
                             <img src={TELEGRAM} alt="" />
                         </a>

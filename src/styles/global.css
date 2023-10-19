@@ -9,7 +9,15 @@ body {
   color: #fff;
   font-weight: 500;
 }
-  
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw9aXpsog.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 h1,
 h2,
 h3,
@@ -39,11 +47,10 @@ button {
   outline: none;
   color: #fff;
   font-size: 16px;
-  font-family: Montserrat, Roboto, sans-serif;
+  font-family: "Monserrat", Roboto, sans-serif;
 }
 
 a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -80,8 +87,7 @@ li {
 }
 
 section {
-  background: var(--dark);
-  border-radius: 6px;
+  background: var(--dark);  
 }
 
 button {
@@ -89,7 +95,7 @@ button {
 }
 
 button:hover {
-  background: var(--orange);
+  /* background: var(--orange); */
 }
 
 h2 {

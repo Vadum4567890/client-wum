@@ -1,29 +1,45 @@
+
+
 .topsells__h1 {
     color: #000;
-    font-size: 36px;
+    font-size: 26px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 1.08px;
 }
 .topsells {
-    margin-top: 20px;
-    margin-left: 96px;
+    margin-top: 120px;
+    margin-left: 0px;
+}
+
+.action__offers {
+    margin-top: 70px;
+    margin-left: 0px;
+}
+
+
+.likebtn {
+    position: absolute;
+    right: 19.2px;
+    top: 23.4px;
 }
 
 .buybtn {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background-color: white;
     position: absolute;
-    bottom: -12%;
-    margin-left: 200px;
+    bottom: -15%;
+    right: 12px;
+    filter: drop-shadow(0px 1.844886064529419px 6.457101345062256px #E9E9E9);
+    /* margin-left: 200px;*/
 }
 .topsells__buy {
     position: relative;
+    left: 15px;
     top: 15px;
-    left: 17px;
     align-items: center;
     justify-content: center;
     
@@ -34,23 +50,29 @@
     flex: 1;
     justify-content: center;
 }
+.product_image image {
+    width: 148px;
+    height: 162px;
+}
 
 .topsells__product__img {
     position: relative;
 }
 
+
+
 .topsells__productlist {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 20px;
     padding-top: 32px;
 }
 
 .topsells__product__img {
-    padding: 40px;
-    max-width: 286px;
-    height: 286.882px;
+    padding: 25px 43px 40px 42px;
+    width: 233px;
+    height: 202px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,27 +80,29 @@
 }
 
 .topsells__product__description {
-    padding: 49.01px 19.92px 42.47px 19.93px;
-    width: 286px;
-    height: 170.098px;
+    width: 233px;
+    height: 73px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     color: #000;
+    /* padding: 12px 0px 12px 12px; */
 }
 .topsells__product__description__title {
-    width: 177.614px;
-    height: 31px;
+    width: 173px;
+    height: 20px;
     flex-shrink: 0;
-    margin-bottom: 22px;
+    margin-top: 12px;
+    margin-left: 12px;
 }
-.topsells__product__description__title__text {
+.topsells__product__description__title p{
     color: black;
-    font-size: 26px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 600;
     line-height: normal;
-    letter-spacing: 0.65px;
+    font-family: "Montserrat";
+    font-weight: 400;
+    letter-spacing: 0.4px;
     text-transform: capitalize;
 }
 
@@ -88,11 +112,14 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    justify-content: flex-end;
+    margin-right: 12px;
 }
-.topsells__product__description__name {
+.topsells__product__description__nameprice p{
     color: #F78269;
-    font-size: 20px;
+    font-family: "Monserrat";
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: normal;
 }

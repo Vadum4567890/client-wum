@@ -1,0 +1,116 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 491px;
+    flex-wrap: wrap;
+    margin-top: 124px;
+    position: relative;
+    margin-bottom: 66px;
+}
+
+.container__triangle {
+    position: absolute;
+    top: -1px;
+    right: 350px;
+}
+.container__triangle2 {
+    position: absolute;
+    bottom: -3px;
+    left: 375px;
+}
+
+.container__items {
+    background-color: #F5F6F8;
+    border-radius: 245.5px 0px 0px 245.5px;
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    width:1120px;
+    height: 491px;
+    padding-top: 93px;
+    padding-left: 192px;
+    position: absolute;
+    right: 0px;
+}
+
+.container__image {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+.image img{
+    width: 553px;
+}
+
+.container__firstblock {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+}
+
+.firstblock__title p {
+    font-family: "Montserrat";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.firstblock__name p {
+    font-family: "Montserrat";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.secondblock {
+    display: flex;
+    flex-direction: row;
+    gap: 57px;
+    margin-top: 94px;
+}
+
+.secondblock__prices {
+    display: flex;
+    flex-direction: column;
+    gap: 18.42px;
+    margin-top: 5px;
+}
+
+.secondblock__price p {
+    color: var(--Red, #F32825);
+    font-family: "Montserrat";
+    font-size: 26.316px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.secondblock__forsale p {
+    color: #454545;
+    font-family: "Montserrat";
+    font-size: 18.421px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.secondblock__button button {
+    border-radius: 0px 35.5px 35.5px 0px;
+    background: #F34A25;
+    display: flex;
+    padding: 27px 31px 27px 23px;
+    justify-content: center;
+    align-items: center;
+}
+.secondblock__button button:hover {
+    background-color: rgba(243, 74, 37, 0.70);
+}
+
+.secondblock__button p {
+    color: #FFF;
+    font-family: "Montserrat";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+}

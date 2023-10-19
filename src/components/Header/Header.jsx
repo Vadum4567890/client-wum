@@ -15,7 +15,6 @@ import LOCATION from '../../images/header/Location.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleForm } from '../../features/user/userSlice';
 
-
 const Header = () => {
     const dispatch = useDispatch();
     const { currentUser } = useSelector(({user})=> user);

@@ -1,0 +1,223 @@
+.mainblock {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 883px;
+    max-height: 670px;
+    background-color: #fff;
+    flex-direction: row;
+    position: relative;
+  }
+  
+  .main__image {
+    position: absolute;
+    bottom: -5px;
+    left: 220px;
+  }
+  
+  .firstpart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 262px;
+    height: 300px;
+    background-color: #252530;
+    padding: 58px 27px 58px 27px;
+  }
+  
+  .firstpart__title {
+    margin-bottom: 30px;
+  }
+  .firstpart__title h1 {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  .firstpart__description p{
+    align-self: center;
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  
+  .firstpart__description__p {
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.9%;
+    letter-spacing: -0.18px;
+  }
+  
+  .firstpart__button {
+    display: flex;
+    margin: 45px 74px 45px 40px;
+    width: 145px;
+  }
+  
+  .firstpart__button__link {
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 123.4%; /* 14.808px */
+    letter-spacing: 0.12px;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+  }
+  
+  
+  .secondpart {
+    width: 314px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 46px;
+  }
+  
+  .secondpart__title{
+    width: 254px;
+    height: 92.553px;
+
+    font-family: "Montserrat";
+  }
+  
+  .secondpart__title p {
+    color: #000;
+    text-transform: uppercase;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 700;
+    align-items: center;
+    line-height: 113.4%; /* 35.154px */
+    letter-spacing: 0.31px;
+  }
+  
+  .thirdpart {
+    width: 269px;
+    height: 300px;
+    flex-shrink: 0;
+    background-color: #252530;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 90px 26px 58px 36px;
+  }
+    
+  .thirdpart__block__line {
+    position: absolute;
+    left: 30px;
+    height: 129px;
+  }
+  
+  
+  .thirdpart__details p {
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .thirdpart__details_btn {
+    margin-right: 70px;
+  }
+  
+  .thirdpart__details_btn p {
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-decoration: underline;
+  }
+
+
+  .fourthpart__price__value p {
+    color: #F32825;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125.9%; /* 25.18px */
+    letter-spacing: -0.3px;
+  }
+  
+  
+  .fourthpart__price__promotional {
+    width: 76px;
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  
+  .fourthpart__price__promotional p {
+    color: #454545;
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.9%; /* 17.626px */
+    letter-spacing: -0.21px;
+    text-decoration: line-through;
+  }
+  
+  .fourthpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 262px;
+    height: 370px;
+    background-color: white;
+  }
+  
+  .fifthpart {
+    width: 314px;
+    height: 370px;
+    background-color: #252530;
+    padding: 40px 11px 0px 35px;
+  }
+  
+  .sixthpart {
+    display: flex;
+    flex-direction: column;
+    width: 269px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fourthpart__title {
+    color: #000;
+  }
+  .sixthpart__title {
+    color: #000;
+  }
+
+  .sixthpart__price__value p {
+    color: #F32825;
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125.9%; /* 25.18px */
+    letter-spacing: -0.3px;
+  }
+
+  .sixthpart__price__promotional p {
+    color: #454545;
+    font-family: "Montserrat";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.9%; /* 17.626px */
+    letter-spacing: -0.21px;
+    text-decoration: line-through;
+  }

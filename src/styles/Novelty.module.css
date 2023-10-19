@@ -4,12 +4,11 @@
 .mainblock {
   display: flex;
   flex-wrap: wrap;
-  margin: 5px 0px 35px -3px;
+  /* margin: 5px 0px 35px -3px; */
   max-width: 883px;
   max-height: 700px;
   background-color: #fff;
-  padding-top: 35px;
-  padding-left: 46px;
+
 }
 
 
@@ -96,13 +95,17 @@
 }
 
 
+.secondpart {
+  width: 312px;
+  height: 433px;
+}
 
 .secondpart img{
   justify-content: center;
   align-items: center;
-  min-width: 314px;
-  height: 433px;
-  border-radius: 20px;
+  min-width: 312px;
+  height: 436px;
+  /* border-radius: 20px; */
 }
 
 
