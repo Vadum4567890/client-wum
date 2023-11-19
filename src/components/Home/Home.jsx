@@ -10,7 +10,6 @@ import Jacket from '../MainProducts/Jacket/Jacket';
 const Home = () => {
   return (
     <div className={styles.App}>
-        <UserForm/>
         <div className={styles.container}>
             <Sidebar />
             <SlideBlock/>

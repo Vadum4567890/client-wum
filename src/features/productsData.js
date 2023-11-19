@@ -14,6 +14,17 @@ import LOGITECH from '../images/categories/companies/Logitech.svg'
 import SAMSUNG from '../images/categories/companies/samsung.svg'
 import TPLINK from '../images/categories/companies/tp-link.svg'
 
+import ONE from '../images/catalog/laptops/1.svg';
+import TWO from '../images/catalog/laptops/2.svg';
+import THREE from '../images/catalog/laptops/3.svg';
+import FOUR from '../images/catalog/laptops/4.svg';
+import FIVE from '../images/catalog/laptops/5.svg';
+import SIX from '../images/catalog/laptops/6.svg';
+import SEVEN from '../images/catalog/laptops/7.svg';
+import EIGHT from '../images/catalog/laptops/8.svg';
+import NINE from '../images/catalog/laptops/9.svg';
+import TEN from '../images/catalog/laptops/10.svg';
+import ELEVEN from '../images/catalog/laptops/11.svg';
 export const companies = [
   {
     id: 1,
@@ -62,13 +73,13 @@ export const products = [
     id: 1,
     imageSrc: HEADPHONES,
     title: 'Навушники Sony ...',
-    price: '4 490₴',
+    price: '4 490',
   },
   {
     id: 2,
     imageSrc: CARDREADER,
     title: 'Кардрідер GaZ ...',
-    price: '4 480₴',
+    price: '4 480',
   },
   {
     id: 3,
@@ -89,3 +100,74 @@ export const products = [
     price: '351₴',
   },
 ];
+
+export const laptops = [
+  {
+    id: 1,
+    imageSrc: ONE,
+    title: 'Ноутбук HP Laptop',
+    price: '4 490₴',
+  },
+  {
+    id: 2,
+    imageSrc: TWO,
+    title: 'Ноутбук ProLogix...',
+    price: '4 480₴',
+  },
+  {
+    id: 3,
+    imageSrc: THREE,
+    title: 'Ноутбук Acer Aspi...',
+    price: '1 990₴',
+  },
+  {
+    id: 4,
+    imageSrc: FOUR,
+    title: 'Ноутбук ігровий А...',
+    price: '32 333₴',
+  },
+  {
+    id: 5,
+    imageSrc: FIVE,
+    title: 'Ноутбук HP Lapto..',
+    price: '38 900₴',
+  },
+  {
+    id: 6,
+    imageSrc: SIX,
+    title: 'Ноутбук HP Lapto..',
+    price: '25 500₴',
+  },
+  {
+    id: 7,
+    imageSrc: SEVEN,
+    title: 'Ноутбук HP Lapto..',
+    price: '23 944₴',
+  },
+  {
+    id: 8,
+    imageSrc: EIGHT,
+    title: 'Ноутбук HP Lapto..',
+    price: '28 999₴',
+  },
+  {
+    id: 9,
+    imageSrc: NINE,
+    title: 'Ноутбук HP Lapto..',
+    price: '34 000₴',
+  },
+  {
+    id: 10,
+    imageSrc: TEN,
+    title: 'Ноутбук HP Lapto..',
+    price: '35 111₴',
+  },
+  {
+    id: 11,
+    imageSrc: ELEVEN,
+    title: 'Ноутбук HP Lapto..',
+    price: '19 999₴',
+  },
+
+];
+

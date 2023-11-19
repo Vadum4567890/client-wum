@@ -59,6 +59,9 @@
     position: relative;
 }
 
+.topsells__product__star {
+    margin-left: 8px;
+}
 
 
 .topsells__productlist {

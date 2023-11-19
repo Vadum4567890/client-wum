@@ -1,15 +1,17 @@
 import React from 'react'
 
-import styles from '../../styles/Novelty.module.css';
+import styles from '../../styles/Novelty/Novelty.module.css';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 import NOTEBOOK from '../../images/NoteBook.svg';
 import LINE from '../../images/Line.svg';
 import SNOTEBOOK from '../../images/rightpanel/Notebook2.svg';
 import MACBOOK from '../../images/rightpanel/mac.svg';
+import { useTranslation } from 'react-i18next';
 
 
 const Novelty = () => {
+  const { t } = useTranslation();
   return (
     <>
       <div className={styles.mainblock}>
@@ -25,11 +27,11 @@ const Novelty = () => {
             </div>
             <div className={styles.firstpart__description}>
               <p  className={styles.firstpart__description__p}>
-                Легкий, стильний та портативний новий Apple MacBook Air — ідеальний вибір як для студентів, так і професіоналів.
+                {t('slideblock.novelty1.description')}
               </p>
             </div>
               <div className={styles.firstpart__button}>
-                <Link to={ROUTES.DETAILS_URL} className={styles.firstpart__button__link}>Більше інформації</Link>
+                <Link to={ROUTES.DETAILS_URL} className={styles.firstpart__button__link}>{t('slideblock.novelty1.more_info')}</Link>
               </div>
             </div>
           </div>
@@ -66,18 +68,15 @@ const Novelty = () => {
             </Link>
         </div>
         <div className={styles.fifthpart}>
-          <h1 className={styles.fifthpart__text}>Новий процесор, чіп М2</h1>
+          <h1 className={styles.fifthpart__text}>{t('slideblock.novelty1.processor')}</h1>
         </div>
         <div className={styles.sixthpart}>
           <div className={styles.sixthpart__elements}>
             <h1 className={styles.sixthpart__h1}>
-              Процесор і графіка
+              {t('slideblock.novelty1.p_graphics')}
             </h1>
             <p className={styles.sixthpart__p}>
-              Новому MacBook Air використовуватиметься чіп M2, 
-              який дає на два графічні ядра більше в порівнянні з обмеженнями M1.
-               Чіп M2 споживають набагато менше енергії, 
-               що має бути перевагою для часу автономної роботи.
+              {t('slideblock.novelty1.text')}
             </p>
           </div>
         </div>

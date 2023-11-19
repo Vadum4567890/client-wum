@@ -7,12 +7,22 @@ import 'swiper/css/navigation';
 import styles from '../../styles/AdditionalComponents/Slider.module.css';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Novelty from './Novelty';
 import Novelty2 from './Novelty2';
 import Novelty3 from './Novelty3';
 
 const SlideBlock = () => {
+
+  useEffect(() => {
+    const paginationBullets = document.querySelectorAll('.swiper-pagination-bullet');
+
+    paginationBullets.forEach((bullet) => {
+      bullet.style.backgroundColor = '#F34A25';
+    });
+  }, []);
+
+
   return (
     <div className={styles.container}>
     <Swiper

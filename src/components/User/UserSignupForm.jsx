@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../features/user/userSlice";
-
 import styles from "../../styles/User.module.css";
+import { useNavigate } from "react-router-dom";
 
 const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
+
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: "",
@@ -24,7 +26,12 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
 
     if (!isNotEmpty) return;
 
-    dispatch(createUser(values));
+    dispatch(createUser(values)).then((resultAction) => {
+      if (createUser.fulfilled.match(resultAction)) {
+        navigate('/profile'); // де history - це об'єкт history з react-router-dom
+      } 
+    });
+    
     closeForm();
   };
 

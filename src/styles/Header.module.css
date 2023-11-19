@@ -39,6 +39,24 @@
 .city {
   display: flex;
   align-items: center;
+  gap: 9px;
+}
+.city select {
+  border: none;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 3px;
+}
+.city option { 
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .city p{
@@ -85,11 +103,14 @@
   color: #242424;
 }
 
+.language button {
+  color: #242424;
+}
 .language p {
   color: #242424;
 }
 
-.language a:last-child p {
+.language a:last-child button {
   margin-left: 5px; /* Додаємо відступ зліва для другого посилання */
   color: #F34A25;
 }
@@ -127,7 +148,7 @@ p {
   width: 472px;
   border-color: white;
 
-  min-width: 300px;
+  /* min-width: 100px; */
   align-items: center;
   border-radius: 50px 0px 0px 50px;
   border-top: 1px solid #D2D2D2;

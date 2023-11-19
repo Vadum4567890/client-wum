@@ -1,100 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { updateUser } from "../../features/user/userSlice";
+import { selectCurrentUser } from "../../features/user/userSlice";
 
 import styles from "../../styles/Profile.module.css";
-
+import { jwtDecode } from "jwt-decode";
 const Profile = () => {
-  const dispatch = useDispatch();
-  const { currentUser } = useSelector(({ user }) => user);
-
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    if (!currentUser) return;
+      const decoded = jwtDecode(localStorage.getItem('token')|| '');
+      if(decoded){
+        setUserData(decoded);
+      }
+     
+  }, [setUserData]);  
 
-    setValues(currentUser);
-  }, [currentUser]);
-
-  const handleChange = ({ target: { value, name } }) => {
-    setValues({ ...values, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const isNotEmpty = Object.values(values).every((val) => val);
-
-    if (!isNotEmpty) return;
-
-    dispatch(updateUser(values));
-  };
+  const { given_name, family_name, email } = userData || {};
 
   return (
-    <section className={styles.profile}>
-      {!currentUser ? (
-        <span>You need to log in</span>
+    <div className={styles.profile}>
+      <h2>User Profile</h2>
+      {userData ? (
+        <ul>
+          <li>First Name: {given_name}</li>
+          <li>Last Name: {family_name}</li>
+          <li>Email: {email}</li>
+        </ul>
       ) : (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.group}>
-            <input
-              type="email"
-              placeholder="Your email"
-              name="email"
-              value={values.email}
-              autoComplete="off"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.group}>
-            <input
-              type="name"
-              placeholder="Your name"
-              name="name"
-              value={values.name}
-              autoComplete="off"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.group}>
-            <input
-              type="password"
-              placeholder="Your password"
-              name="password"
-              value={values.password}
-              autoComplete="off"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <div className={styles.group}>
-            <input
-              type="avatar"
-              placeholder="Your avatar"
-              name="avatar"
-              value={values.avatar}
-              autoComplete="off"
-              onChange={handleChange}
-              required
-            />
-          </div>
-
-          <button type="submit" className={styles.submit}>
-            Update
-          </button>
-        </form>
+        <p>Loading...</p>
       )}
-    </section>
+    </div>
   );
 };
 

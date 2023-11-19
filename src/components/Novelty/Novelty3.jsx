@@ -7,7 +7,7 @@ import MAINWATCH from '../../images/novelty/mainwatch.svg';
 import WATCHSERIES from '../../images/novelty/watchseries.png';
 import WATCH4 from '../../images/novelty/watch4.svg';
 import WATCHPRICE from '../../images/novelty/lastwatch.svg';
-import styles from '../../styles/Novelty3.module.css';
+import styles from '../../styles/Novelty/Novelty3.module.css';
 
 const Novelty3 = () => {
   return (

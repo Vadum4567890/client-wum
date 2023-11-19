@@ -1,0 +1,37 @@
+{
+    "header": {
+        "en": "EN",
+        "ua": "UA",
+        "city": {
+            "lviv": "Lviv",
+            "kyiv": "Kyiv",
+            "kharkiv": "Kharkiv"
+        },
+        "logout" : "Logout",
+        "placeholder" : "I am looking..."
+    },
+    "m_prod" : {
+        "headphones" : "Headphones",
+        "look" : "Take a look",
+        "style": "Turn on your Style",
+        "jacket" : "Short double-breasted coat"
+    },
+    "slideblock" : {
+        "novelty1" : {
+            "description" : "Lightweight, stylish and portable, the new Apple MacBook Air is the perfect choice for students and professionals alike.",
+            "more_info" : "More information",
+            "processor" : "New processor, chip M2",
+            "p_graphics" : "Processor and graphics",
+            "text" : "The new MacBook Air will use the M2 chip, which gives two more graphics cores compared to the limitations of M1. The M2 chip consumes much less power, which should be an advantage for battery life."
+        },
+        "novelty2" : {
+            "title" : "Product description",
+            "description" : "Jil Sander straight cut high rise trousers. Model with decorative stitching on the front. Slit pockets on the sides. Fastens with a zipper under the bar and a button. Back slits. Model height: 177 cm. Parameters: 86/67/93. Model size: 36",
+            "main" : "feel your elegance",
+            "details" : "Versace jacket with a fitted asymmetric cut. On the left, it is complemented by a cut and light drapery. A silk belt with a nautical-themed medallion accentuates the waist. Turn-down collar with satin lapels. Long sleeves...",
+            "more" : "More information",
+            "jeans" : "Black Palazzo pants",
+            "jacket" : "Black Versace jacket"
+        }
+    }   
+}

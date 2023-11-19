@@ -79,7 +79,13 @@
   font-size: 16px;
   font-weight: 400;
 }
-a {
+/* .links a {
+  color: #A1A1A1;
+} */
+.listofactions a {
+  color: #A1A1A1;
+} 
+.links a {
   color: #A1A1A1;
 }
 

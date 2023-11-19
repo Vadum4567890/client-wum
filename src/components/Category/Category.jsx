@@ -1,12 +1,12 @@
 import React from 'react'
-import Product from '../Product/Product'
-import { companies, products } from '../../features/productsData'
-import st from '../../styles/Home.module.css'
+import { companies } from '../../features/productsData'
 import styles from '../../styles/Category.module.css'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import HOME from '../../images/categories/Home2.svg'
 import SubCategory from '../SubCategory/SubCategory'
+import { subcategories } from '../../features/subcategoriesData'
+import InfoBlock from '../InfoBlock/InfoBlock'
 
 const Category = () => {
   return (
@@ -23,17 +23,19 @@ const Category = () => {
         </div>
         <div className={styles.head__companies}>
           {companies.map((company) => (
-            <div className={styles.company}>
-              <img src={company.imageSrc} className={styles.company__img}/> 
+            <div key={company.id} className={styles.company}>
+              <img src={company.imageSrc} className={styles.company__img} alt='company'/> 
             </div>
           ))}
           </div>
         <div className={styles.main}>
-          {subcategories.map((category) => (
-              <SubCategory key={category.id} product={category} />
+          {subcategories.map((subcat) => (
+              <SubCategory key={subcat.id} subcategory={subcat} />
             ))}
         </div>
+        
       </div>
+      <InfoBlock/>
     </>
   )
 }

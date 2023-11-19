@@ -7,9 +7,11 @@ import HOTWOMAN from '../../../images/products/hotwoman.png';
 
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../../utils/routes';
+import { useTranslation } from 'react-i18next';
 
 
 const Jacket = () => {
+    const { t } = useTranslation();
   return (
     <>
         <div className={styles.container}>
@@ -27,10 +29,10 @@ const Jacket = () => {
                 </div>
                <div className={styles.container__firstblock}>
                     <div className={styles.firstblock__title}>
-                        <p>Увімкни свій Стиль</p>
+                        <p>{t('m_prod.style')}</p>
                     </div>
                     <div className={styles.firstblock__name}>
-                        <p>Пальто двобортне вкорочене</p>
+                        <p>{t('m_prod.jacket')}</p>
                     </div>
                </div>
                <div className={styles.secondblock}>
@@ -44,7 +46,7 @@ const Jacket = () => {
                     </div>
                     <div className={styles.secondblock__button}>
                         <button type='button'>
-                            <p>Подивитись</p>
+                            <p>{t('m_prod.look')}</p>
                         </button>
                     </div>
                </div>

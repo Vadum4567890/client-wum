@@ -2,11 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes';
 
-import styles from '../../styles/Novelty2.module.css';
+import styles from '../../styles/Novelty/Novelty2.module.css';
 import LINE from '../../images/Line.svg';
 import PANTS from '../../images/novelty/pants.png';
 import WOMAN from '../../images/novelty/bigwoman.png';
+import JACKET from '../../images/novelty/jacket.png';
+import { useTranslation } from 'react-i18next';
+
 const Novelty2 = () => {
+    const { t } = useTranslation();
     return (
       <>
         <div className={styles.mainblock}>
@@ -16,22 +20,19 @@ const Novelty2 = () => {
             <div className={styles.firstpart}>
                 <div className={styles.firstpart__title}>
                     <h1>
-                        Опис товару 
+                       {t('slideblock.novelty2.title')} 
                     </h1>
                 </div>
                 <div className={styles.firstpart__description}>
                 <p>
-                    Штани на високій посадці прямого крою від Jil Sander.
-                     Модель із декоративними строчками спереду. 
-                     Прорізні кишені з боків. Застібається на блискавку під планкою та ґудзик. 
-                     Розрізи ззаду. Зріст моделі: 177 см. Параметри: 86/67/93. Розмір на моделі: 36
+                    {t('slideblock.novelty2.description')} 
                 </p>
             </div>
             </div>
             
             <div className={styles.secondpart}>
                 <div className={styles.secondpart__title}>
-                    <p>відчуй<br/> свою<br/>  елегантність</p>
+                    <p>{t('slideblock.novelty2.main')} </p>
                 </div>
             </div>
             <div className={styles.thirdpart}>
@@ -40,15 +41,12 @@ const Novelty2 = () => {
                 </div>
                 <div className={styles.thirdpart__details}>
                     <p>
-                        Жакет Versace приталеного асиметричного крою. 
-                        Зліва доповнений розрізом і легким драпіруванням. 
-                        Шовковий пояс із медальйоном на морську тему акцентує увагу на талії. 
-                        Відкладний комір з атласними лацканами. Довгі рукави...
+                        {t('slideblock.novelty2.details')} 
                     </p>
                 </div>
                 <div className={styles.thirdpart__details_btn}>
                     <Link to={ROUTES}>
-                        <p>Більше інформації</p>
+                        <p>{t('slideblock.novelty2.more')} </p>
                     </Link>
                 </div>
             </div>
@@ -58,7 +56,7 @@ const Novelty2 = () => {
                 </Link>
                 <div className={styles.fourthpart__title}>
                     <p>
-                        Штани Палаццо чорні
+                    {t('slideblock.novelty2.jeans')} 
                     </p>
                 </div>
                 <div className={styles.fourthpart__price}>
@@ -79,11 +77,11 @@ const Novelty2 = () => {
             </div>
             <div className={styles.sixthpart}>
                 <Link to={ROUTES.DETAILS_URL} className={styles.sixthpart__img__link}>
-                    <img src={PANTS} alt="notebook" />
+                    <img src={JACKET} alt="notebook" />
                 </Link>
                 <div className={styles.sixthpart__title}>
                     <p>
-                        Жакет Versace чорний
+                    {t('slideblock.novelty2.jacket')} 
                     </p>
                 </div>
                 <div className={styles.sixthpart__price}>

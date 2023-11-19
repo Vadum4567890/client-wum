@@ -1,0 +1,147 @@
+.head__links {
+    color: #F34A25;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 32px;
+  }
+  
+  
+  .main__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .head__companies {
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    margin-bottom: 36px;
+  }
+  
+  .company {
+    padding: 0px 23px;
+    border-right: 1px solid #ccc;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .company:first-child {
+    border-left: 1px solid #ccc;
+  }
+  
+  .company__img{
+    width: auto;
+    height: auto;
+    max-width: 112px;
+    max-height: 30px;
+    display: block;
+  }
+  .category__link a {
+    color: #F34A25;
+  }
+
+.head__catalog {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+}
+.head__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head__title h1{
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 1.28px;
+}
+
+.head__sort_name{
+  color: black;
+} 
+
+
+.head__right {
+  width: 287px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.head__sort_triple {
+  min-width: 30px;
+  min-height: 25px;
+}
+.head__sort_triple button {
+  padding: 0;
+}
+.head__sort_triple img{
+  width: 100%;
+  height: 100%;
+  max-width: 30px;
+  max-height: 25px;
+}
+
+.head__sort_quatro {
+  min-width: 30px;
+  min-height: 25px;
+}
+.head__sort_quatro button {
+  padding: 0;
+}
+.head__sort_quatro img{
+  width: 100%;
+  height: 100%;
+  max-width: 30px;
+  max-height: 25px;
+}
+
+
+.head__sort{
+  width: 180px;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 19px;
+  border: 1px solid #D2D2D2;
+}
+
+
+.head__sort_img {
+  margin-top: 4px;
+}
+
+/* .product__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+} */
+.product__list {
+  width: 1340px;
+  display: flex;
+  flex-direction: row;
+  gap: 29px;
+  margin-top: 26px;
+  
+  padding: 40px;
+}
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 19px;
+}

@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../features/user/userSlice";
 
 import styles from "../../styles/User.module.css";
+import { useNavigate } from "react-router-dom";
 
-const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
+const UserLoginForm = ({ toggleCurrentFormType, closeForm }) => {
+  const navigate = useNavigate()
   const dispatch = useDispatch();
   const [values, setValues] = useState({
     email: "",
@@ -22,7 +24,11 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
 
     if (!isNotEmpty) return;
 
-    dispatch(loginUser(values));
+    dispatch(loginUser(values)).then((resultAction) => {
+      if (loginUser.fulfilled.match(resultAction)) {
+        navigate('/profile'); // де history - це об'єкт history з react-router-dom
+      } 
+    });
     closeForm();
   };
 
@@ -76,4 +82,4 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
   );
 };
 
-export default UserSignupForm;
+export default UserLoginForm;

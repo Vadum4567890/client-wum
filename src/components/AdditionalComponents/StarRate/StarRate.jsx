@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from '../../../styles/AdditionalComponents/StarRate.module.css';
 
@@ -6,9 +6,18 @@ import filledStar from '../../../images/additional/on-star.svg';
 import emptyStar from '../../../images/additional/off-star.svg';
 
 
-const StarRate = () => {
-    const [rating, setRating] = useState(0);
+const StarRate = ({productId, starimg1,starimg2}) => {
+  const [rating, setRating] = useState(() => {
+    // Зчитування збереженого рейтингу для конкретного продукту з localStorage
+    const savedRating = localStorage.getItem(`rating_${productId}`);
+    return savedRating ? parseInt(savedRating, 10) : 0;
+  });
     const [hover, setHover] = useState(0);
+
+
+    useEffect(() => {
+      localStorage.setItem(`rating_${productId}`, rating.toString());
+    }, [rating, productId]);
   
     return (
       <div className={styles.starRating}>
@@ -24,9 +33,9 @@ const StarRate = () => {
               onMouseLeave={() => setHover(rating)}
             >
                {index <= (hover || rating) ? (
-              <img src={filledStar} alt="Filled Star" />
+              <img src={starimg2 || filledStar} alt="Filled Star" />
             ) : (
-              <img src={emptyStar} alt="Empty Star" />
+              <img src={starimg1 || emptyStar} alt="Empty Star" />
             )}
             </button>
           );
