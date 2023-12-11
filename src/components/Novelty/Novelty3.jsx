@@ -8,8 +8,10 @@ import WATCHSERIES from '../../images/novelty/watchseries.png';
 import WATCH4 from '../../images/novelty/watch4.svg';
 import WATCHPRICE from '../../images/novelty/lastwatch.svg';
 import styles from '../../styles/Novelty/Novelty3.module.css';
+import { useTranslation } from 'react-i18next';
 
 const Novelty3 = () => {
+    const { t } = useTranslation();
   return (
     <>
         <div className={styles.mainblock}>
@@ -21,14 +23,12 @@ const Novelty3 = () => {
                 </div>
                 <div className={styles.firstpart__description}>
                     <p>
-                        Ваш незамінний помічник став іще потужнішим. 
-                        Моніторинг температури призначено для отримання важливої 
-                        інформації про жіноче здоров’я.
+                        {t('slideblock.novelty3.description')}
                     </p>
                 </div>
                 <div className={styles.firstpart__details_btn}>
                     <Link to={ROUTES}>
-                        <p>Більше інформації</p>
+                        <p> {t('slideblock.novelty3.more')}</p>
                     </Link>
                 </div>
             </div>
@@ -47,14 +47,11 @@ const Novelty3 = () => {
             </div>
             <div className={styles.thirdpart}>
                 <div className={styles.thirdpart__title}>
-                   <p>Безпека</p>
+                   <p> {t('slideblock.novelty3.security')}</p>
                 </div>
                 <div className={styles.thirdpart__details}>
                     <p>
-                        Жакет Versace приталеного асиметричного крою. 
-                        Зліва доповнений розрізом і легким драпіруванням. 
-                        Шовковий пояс із медальйоном на морську тему акцентує увагу на талії. 
-                        Відкладний комір з атласними лацканами. Довгі рукави...
+                    {t('slideblock.novelty3.details')}
                     </p>
                 </div>
             </div>
@@ -67,14 +64,14 @@ const Novelty3 = () => {
                 <div className={styles.fourthpart__buybtn}>
                     <Link to={ROUTES}>
                         <p>
-                            Купити
+                            {t('slideblock.novelty3.buy')}
                         </p>
                     </Link>
                 </div>
             </div>
             <div className={styles.fifthpart}>
                 <div className={styles.fifthpart__title}>
-                    <p>У кращій формі, ніж будь‑коли.</p>
+                    <p> {t('slideblock.novelty3.title')}</p>
                 </div>
             </div>
             <div className={styles.sixthpart}>
@@ -83,7 +80,7 @@ const Novelty3 = () => {
                 </Link>
                 <div className={styles.sixthpart__title}>
                     <p>
-                        Смарт-годинник<br/> Apple Watch Series 8 GPS
+                    {t('slideblock.novelty3.smartwatch')}<br/> Apple Watch Series 8 GPS
                     </p>
                 </div>
                 <div className={styles.sixthpart__price}>

@@ -1,0 +1,60 @@
+.block {
+    display: none;
+    position: absolute;
+    top: 62px;
+    right: -135px;
+    width: 300px;
+    max-height: 400px; 
+    background-color: white;
+    z-index: 1000;
+    overflow-y: auto;
+    color: black;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+ul {
+    max-height: 100%; /* Set a max-height for the list within the block */
+    overflow-y: auto; /* Add this line to enable scrolling for the list */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageblock {
+    display: flex;
+    width: 120px;
+    height: 120px;
+    background-color: gray;
+    justify-content: center;
+    align-items: center;
+}
+.imageblock img {
+    max-width: 100px;
+    max-height: 100px;
+}
+li {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+.title {
+    padding: 10px;
+}
+
+.block__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close {
+    margin-right: 10px;
+}

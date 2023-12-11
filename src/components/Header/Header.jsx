@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import styles from '../../styles/Header.module.css';
 
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ROUTES } from '../../utils/routes';
 
 import LOGO from '../../images/MainLogo.svg';
-import ARROWUP from '../../images/header/Arrow Up.svg';
 import SEARCH from '../../images/search.svg';
 import SHOPPINGCART from '../../images/header/ShoppingCart2.svg';
 import HEART from '../../images/header/Heart.svg';
@@ -17,6 +16,9 @@ import { logOut, toggleForm } from '../../features/user/userSlice';
 import UserForm from '../User/UserForm';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
+import LikedProductsWindow from '../AdditionalComponents/LikedProductWindow/LikedProductWindow';
+
+
 const Header = () => {
     const { t } = useTranslation();
     const navigate = useNavigate()
@@ -43,6 +45,20 @@ const Header = () => {
           navigate("/")
         }
       };
+
+
+
+      // Like
+
+      const [likedProductsWindowOpen, setLikedProductsWindowOpen] = useState(false);
+
+  const handleLikedProductsClick = () => {
+    setLikedProductsWindowOpen((prevOpen) => !prevOpen);
+  };
+
+  const closeLikedProductsWindow = () => {
+    setLikedProductsWindowOpen(false);
+  };
 
   return (
     <>
@@ -106,22 +122,24 @@ const Header = () => {
                     </Link>
                 )
             }
-                <Link to={ROUTES.LIKES} className={styles.cart}>
+                <button className={styles.cart} onClick={handleLikedProductsClick}>
                     <img src={HEART} alt="heart" />
-                </Link>
+                    <LikedProductsWindow isOpen={likedProductsWindowOpen} onClose={closeLikedProductsWindow} />
+                </button>
+                
                 <Link to={ROUTES.CART} className={styles.cart}>
                     <img src={SHOPPINGCART} alt="shopping cart"/>
                     <span className={styles.count}>2</span>
                 </Link>
-                 {
+                 {/* {
                     localStorage.getItem('token') !== null ? (
                         <button style={{ color: 'red' }} onClick={handleLogout}>
-                        {t('header.city.logout')}
+                        {t('header.logout')}
                         </button>
                     ) : (
                         <></>
                     )
-                }
+                } */}
             </div>
         </div>
     </div>

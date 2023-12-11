@@ -1,98 +1,34 @@
-import React from 'react'
-import styles from '../../styles/Filter.module.css'
-import TICK from '../../images/TICKB.svg'
+import React, { useState } from 'react';
+import styles from '../../styles/Filter.module.css';
+
+import Accordion from '../AdditionalComponents/Accordion/Accordion';
 
 const Filter = () => {
+  const initialFilters = [
+    { title: 'Бренди', content: ['Asus', 'HP', 'Dell'] },
+    { title: 'Ціна', content: ['До 1000', '1000-2000', '2000-3000'] },
+    { title: 'Країна-виробник', content: ['Ukraine', 'Germany', 'USA', "Poland"]}
+  ];
+
+  const [selectedFilters, setSelectedFilters] = useState({});
+
+  const handleFilterChange = (filterName, selectedOption) => {
+    setSelectedFilters((prevSelected) => ({
+      ...prevSelected,
+      [filterName]: selectedOption,
+    }));
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.filter__title}>
         <h3>Фільтри</h3>
       </div>
       <div className={styles.filter__blocks}>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Бренди</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Ціна</p>
-          </div>
-         <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Країна-виробник</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Колір</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Дискретна відеокарта</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Обсяг SSD</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Операційна система</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Кількість ядер<br/> процесора</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
-        <div className={styles.filter__block}>
-          <div className={styles.filter__name}>
-            <p>Обсяг памʼяті<br/> відеокарти</p>
-          </div>
-          <hr/>
-          <div className={styles.filter__tick}>
-            <img src={TICK} alt=''/>
-          </div>
-        </div>
+        <Accordion items={initialFilters}/>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;

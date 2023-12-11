@@ -1,10 +1,8 @@
 import React from 'react'
-import ProductHead from './ProductHead'
-import styles from "../../styles/ProductPage.module.css";
-import { useParams } from 'react-router-dom';
-const ProductCharacteristics = () => {
-    const { id } = useParams();
 
+import styles from "../../styles/ProductPage.module.css";
+
+const ProductCharacteristics = () => {
   return (
     <div className={styles.container}>
         <div>

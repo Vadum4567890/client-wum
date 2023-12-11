@@ -32,6 +32,21 @@
             "more" : "More information",
             "jeans" : "Black Palazzo pants",
             "jacket" : "Black Versace jacket"
+        },
+        "novelty3" : {
+            "description" : "Your indispensable assistant has become even more powerful. Temperature monitoring is designed to obtain important information about women's health.",
+            "more" : "More information",
+            "security" : "Security",
+            "details" : "Versace jacket with a fitted asymmetric cut. On the left, it is complemented by a cut and light drapery. A silk belt with a nautical-themed medallion accentuates the waist. Turn-down collar with satin lapels. Long sleeves...",
+            "buy" : "Buy",
+            "title" : "In better shape than ever.",
+            "smartwatch" : "Smart-watch"
         }
-    }   
+    },
+    "products" : {
+        "hotproduct" : "Hot New Products",
+        "demand" : "Now in demand",
+        "topsale" : "Top sales",
+        "offers" : "Promotional offers"
+    }
 }

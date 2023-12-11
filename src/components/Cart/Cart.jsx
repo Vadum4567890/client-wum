@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addItemToCart,
@@ -6,11 +6,9 @@ import {
 } from "../../features/user/userSlice";
 
 import styles from "../../styles/Cart.module.css";
-import { sumBy } from "../../utils/common";
-import { useTranslation } from "react-i18next";
+import TRASH from "../../images/additional/Trash.svg";
 
 const Cart = () => {
-  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { cart } = useSelector(({ user }) => user);
 
@@ -56,12 +54,10 @@ const Cart = () => {
           <div className={styles.list}>
             {cart.map((item) => {
               const { title, category, imageSrc, price, id, quantity } = item;
-              console.log("Item Quantity:", quantity, "Item Price:", price);
               return (
                 <div className={styles.item} key={id}>
                   <div
                     className={styles.image}
-                    // style={{ backgroundImage: `url(${images[0]})` }}
                     ><img src={imageSrc} alt="" /></div>
                   <div className={styles.info}>
                     <h3 className={styles.name}>{title}</h3>
@@ -106,12 +102,8 @@ const Cart = () => {
                     className={styles.close}
                     onClick={() => removeItem(item.id)}
                   >
-                    <p>Remove</p>
-                    {/* <svg className="icon">
-                      <use
-                        xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`}
-                      />
-                    </svg> */}
+                  <img src={TRASH} alt="trash" />
+                  
                   </div>
                 </div>
               );

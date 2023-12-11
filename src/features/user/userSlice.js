@@ -16,8 +16,15 @@ export const createUser = createAsyncThunk(
       thunkAPI.dispatch(createUser(decoded));
       return res.data;
     } catch (err) {
-      console.log(err);
-      return thunkAPI.rejectWithValue(err);
+      console.error(err);  // Log the full error for debugging purposes
+
+      // Return a serializable error object
+      return thunkAPI.rejectWithValue({
+        message: err.message,
+        name: err.name,
+        code: err.code,
+        // Add other properties as needed
+      });
     }
   }
 );
@@ -77,7 +84,7 @@ const initialState = {
   formType: "signup",
   showForm: false,
   isAuthorized: false,
-  likes: []
+  likes: JSON.parse(localStorage.getItem('likes')) || [],
 };
 
 
@@ -123,6 +130,16 @@ const userSlice = createSlice({
     toggleFormType: (state, { payload }) => {
       state.formType = payload;
     },
+    toggleLike: (state, { payload }) => {
+      const { productId } = payload;
+      const index = state.likes.indexOf(productId);
+      if (index !== -1) {
+        state.likes.splice(index, 1); // Product already liked, remove from likes
+      } else {
+        state.likes.push(productId); // Product not liked, add to likes
+      }
+      localStorage.setItem('likes', JSON.stringify(state.likes)); 
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -139,10 +156,11 @@ const userSlice = createSlice({
     .addCase(createUser.rejected, (state) => {
       state.isLoading = false;
       state.currentUser = null;
+      state.isAuthorized = false;
     })
     .addCase(loginUser.rejected, (state, action) => {
       state.isLoading = false;
-
+      state.isAuthorized = false;
       state.currentUser = null;
     });
    
@@ -150,7 +168,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { toggleForm, toggleFormType, logOut, addItemToCart, removeItemFromCart, initializeCartFromLocalStorage } = userSlice.actions;
+export const { toggleForm, toggleFormType, logOut, addItemToCart, removeItemFromCart, initializeCartFromLocalStorage, toggleLike } = userSlice.actions;
 export default userSlice.reducer;
 
 

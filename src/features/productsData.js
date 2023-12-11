@@ -73,13 +73,13 @@ export const products = [
     id: 1,
     imageSrc: HEADPHONES,
     title: 'Навушники Sony ...',
-    price: '4 490',
+    price: '4 490₴',
   },
   {
     id: 2,
     imageSrc: CARDREADER,
     title: 'Кардрідер GaZ ...',
-    price: '4 480',
+    price: '4 480₴',
   },
   {
     id: 3,

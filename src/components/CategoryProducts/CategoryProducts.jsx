@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { companies, laptops } from '../../features/productsData'
 import styles from '../../styles/CategoryProducts.module.css'
 import { Link, NavLink } from 'react-router-dom'
@@ -10,11 +10,34 @@ import QUATRO from '../../images/catalog/quatro.svg'
 import TRIPLE from '../../images/catalog/triple.svg'
 import Filter from '../Filter/Filter'
 import Product from '../Product/Product'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSubcategory } from '../../features/subcategories/subcategoriesSlice'
 
 
 const CategoryProducts = () => {
-    const { slug } = useParams();
-  
+    const { id, slug } = useParams();
+    const dispatch = useDispatch();
+
+  // Just logic to go back to subcategories
+  const { list: subcategories } = useSelector((state) => state.subcategories);
+  const currentSubcategory = subcategories.find((category) => category.id === Number(id));
+  useEffect(() => {
+    dispatch(getSubcategory(Number(currentSubcategory.parentId)));
+  }, [dispatch, id]);
+
+
+
+    const [layout, setLayout] = useState('quatro');
+
+    const toggleLayout = () => {
+        setLayout((prevLayout) => (prevLayout === 'quatro' ? 'triple' : 'quatro'));
+      };
+
+      const products = (slug === 'Ноутбуки' ? laptops : []).map((product) => (
+        <Product key={product.id} product={product} layout={layout} />
+      ));
+      
+
     return (
     <>
         <div className={styles.main__content}>
@@ -24,7 +47,7 @@ const CategoryProducts = () => {
                 </Link>
                 /
                 <div className={styles.category__link}>
-                    <NavLink to={`/categories/${1}`}><p>Ноутбуки та комп’ютери</p></NavLink>
+                    <NavLink to={`/categories/${currentSubcategory?.parentId}`}><p>Ноутбуки та комп’ютери</p></NavLink>
                 </div>
                 /
                 <div className={styles.category__link}>
@@ -52,24 +75,17 @@ const CategoryProducts = () => {
                         </div>
                     </div>
                     <div className={styles.head__sort_triple}>
-                        <button>
-                            <img src={TRIPLE} alt='triple'/>
-                        </button>
-                    </div>
-                    <div className={styles.head__sort_quatro}>
-                        <button>
-                            <img src={QUATRO} alt='quatro'/>
-                        </button>
-                    </div>
-                </div>
+                    <button onClick={toggleLayout}>
+                        <img src={layout === 'triple' ? TRIPLE : QUATRO} alt="layout" />
+                    </button>
+                    </div>  
+                </div>                
             </div>
             
-            <div className={styles.product__list}>
+            <div className={styles.product__view}>
                 <Filter/>
-                <div className={styles.products}>
-                    {slug === 'Ноутбуки' && laptops.map((product) => (
-                        <Product key={product.id} product={product} />
-                    ))}
+                <div className={`${styles.product__list} ${styles.products} ${styles[layout + 'Layout']}`}>
+                     {products}
                 </div>
             </div>
         </div>

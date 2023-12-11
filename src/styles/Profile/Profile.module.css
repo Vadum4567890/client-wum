@@ -1,0 +1,132 @@
+.profile {
+  flex-grow: 1;
+  margin: 0 auto;
+  color: #212123;
+}
+
+.main {
+  display: flex;
+  gap: 105px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.group {
+  width: 100%;
+  background: #212123;
+  border-radius: 8px;
+  color: var(--light);
+  padding: 12px 24px;
+}
+
+.group input {
+  width: 100%;
+}
+
+.profile__main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile__user {
+  display: flex;
+  width: 315px;
+  height: 70px;
+  padding: 10px 13px;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  border-radius: 100px;
+  background: rgba(240, 76, 39, 0.20);
+}
+
+.profile__name {
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.profile__email {
+  color: #9C9C9C;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.profile__img {
+  fill: #F34A25;
+filter: drop-shadow(1.5px 1.5px 3px rgba(174, 174, 192, 0.40)) drop-shadow(-1px -1px 3px #FFF);
+}
+.profile__icon {
+  margin-left: 30px;
+}
+
+.hrmain {
+  width: 85%;
+  margin-left: 20px;
+}
+
+.nav__bar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.nav__item {
+  display: flex;
+  width: 305px;
+  padding: 8px 13px 8px 15px;
+  align-items: center;
+  gap: 18px;
+  border-radius: 100px;
+  /* background: rgba(240, 76, 39, 0.20); */
+  background-color: white;
+}
+
+.nav__item:hover {
+  background: rgba(240, 76, 39, 0.20);
+}
+
+.item__title {
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.item__title button {
+  color: #000;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 0px;
+}
+
+.item__icon {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  padding: 13.571px 10.108px 12.967px 10.893px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 50px;
+  background: #FFF;
+  box-shadow: 1.5px 1.5px 3px 0px rgba(174, 174, 192, 0.40), -1px -1px 3px 0px #FFF;
+  cursor: pointer;
+}
+
+
+.data__block {
+  width: 820px;
+}

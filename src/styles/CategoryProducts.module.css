@@ -48,6 +48,7 @@
   flex-direction: row;
   justify-content: space-between;
   height: 40px;
+  max-width: 1340px;
 }
 .head__title {
   display: flex;
@@ -130,7 +131,7 @@
   flex-wrap: wrap;
   gap: 20px;
 } */
-.product__list {
+.product__view {
   width: 1340px;
   display: flex;
   flex-direction: row;
@@ -143,5 +144,46 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 19px;
+  
 }
+
+/* Existing styles */
+
+/* Add new styles for the triple layout */
+.products.tripleLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.products.tripleLayout .product__view {
+  width: calc(33.33% - 10px); /* Adjust the width based on your design */
+  margin-bottom: 20px;
+}
+
+.products.quatroLayout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px; /* Adjust the gap as needed */
+}
+
+/* Add these styles for the "triple" layout */
+.products.tripleLayout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px; /* Adjust the gap as needed */
+  margin-left: 150px;
+}
+
+.products.quatroLayout .product__view {
+  width: calc(25% - 10px); /* Adjust the width based on your design */
+
+}
+
+
+
+.products.tripleLayout .product {
+  /* Additional styles for the "triple" layout */
+  width: calc(33.33% - 10px); /* Adjust the width based on your design */
+}
+/* Other styles */

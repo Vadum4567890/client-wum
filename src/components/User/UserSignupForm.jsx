@@ -26,11 +26,20 @@ const UserSignupForm = ({ toggleCurrentFormType, closeForm }) => {
 
     if (!isNotEmpty) return;
 
-    dispatch(createUser(values)).then((resultAction) => {
-      if (createUser.fulfilled.match(resultAction)) {
-        navigate('/profile'); // де history - це об'єкт history з react-router-dom
-      } 
-    });
+    // dispatch(createUser(values)).then((resultAction) => {
+    //   if (createUser.fulfilled.match(resultAction)) {
+    //     navigate('/profile'); // де history - це об'єкт history з react-router-dom
+    //   } 
+    // });
+
+    try {
+      dispatch(createUser(values))
+      navigate("/profile")
+      window.location.reload();
+    } catch (error) {
+      console.error("Error during logout:", error);
+      navigate("/")
+    }
     
     closeForm();
   };
