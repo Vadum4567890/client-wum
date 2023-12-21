@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/Header.module.css';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { ROUTES } from '../../utils/routes';
 
@@ -17,6 +17,8 @@ import UserForm from '../User/UserForm';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import LikedProductsWindow from '../AdditionalComponents/LikedProductWindow/LikedProductWindow';
+import { clearSearchedProducts, getSearchedProducts } from '../../features/products/productsSlice';
+
 
 
 const Header = () => {
@@ -24,27 +26,28 @@ const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const { currentUser } = useSelector(({user})=> user);
+    const { cart } = useSelector(({ user }) => user);
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+    
     const handleClick = () => {
         if (!currentUser) dispatch(toggleForm(true));
     }
-
-    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
 
     const handleLanguageChange = (language) => {
       i18n.changeLanguage(language);
       setSelectedLanguage(language);
     };
 
-    const handleLogout = () => {
-        try {
-          dispatch(logOut());
-          navigate("/")
-          window.location.reload();
-        } catch (error) {
-          console.error("Error during logout:", error);
-          navigate("/")
-        }
-      };
+    // const handleLogout = () => {
+    //     try {
+    //       dispatch(logOut());
+    //       navigate("/")
+    //       window.location.reload();
+    //     } catch (error) {
+    //       console.error("Error during logout:", error);
+    //       navigate("/")
+    //     }
+    //   };
 
 
 
@@ -59,6 +62,62 @@ const Header = () => {
   const closeLikedProductsWindow = () => {
     setLikedProductsWindowOpen(false);
   };
+
+
+
+  const location = useLocation(); // Використовуємо useLocation для отримання поточного шляху
+  
+  const [searchText, setSearchText] = useState(''); // Стан для відстеження тексту пошуку
+  const [searchResults, setSearchResults] = useState([]);
+  const [isFocused, setIsFocused] = useState(false);
+  const searchedProducts = useSelector((state) => state.products.searchedProducts);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+
+  useEffect(() => {
+    setSearchResults(searchedProducts);
+  }, [searchedProducts]);
+
+  const handleSearchChange = (event) => {
+    const text = event.target.value;
+    setSearchText(text);
+    try {
+        // Dispatch the getSearchedProducts action with the search text
+        dispatch(getSearchedProducts(text));
+      } catch (error) {
+        console.error('Error searching for products:', error);
+      }
+  };
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    console.log('Searching for:', searchText);
+    setSearchResults([]); // Очищаємо попередні результати (поки що)
+  };
+  const handleClearSearch = () => {
+    dispatch(clearSearchedProducts());
+  };
+
+  const shortenedName = (product) => {
+    if (product.name && typeof product.name === 'string') {
+      return product.name.length > 30
+        ? product.name.substring(0, 30)+".."
+        : product.name;
+    } else {
+      return 'Невідомо';
+    }
+  }
+
+  const onNavigate = (id) => {
+    navigate(id+"/about");
+  };
+
+  const totalQuantity = cart.reduce((total, currentItem) => total + currentItem.quantity, 0);
 
   return (
     <>
@@ -82,21 +141,32 @@ const Header = () => {
                 </div>
             </div>
             <div>
-               <form className={styles.form}>
+               <form className={styles.form} onSubmit={handleSearchSubmit}>
                     <div className={styles.input}>
                         <input 
                             placeholder={t('header.placeholder')}
                             type="search" 
                             name="search" 
                             autoComplete="off"
-                            onChange={()=> {}}
+                            onChange={handleSearchChange}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
                         />
                         </div>
-                        <div className={styles.icon}>
+                        <div onClick={handleClearSearch} className={styles.icon}>
                     <img src={SEARCH} alt="searchbtn"/>
-                </div>
-                    </form>
-                
+                    </div>
+                </form>
+                {location.pathname === '/' && searchText !== '' && searchedProducts.items  && (
+                    <div className={styles.searchResults}>
+                    {searchedProducts.items.slice(0, 6).map((result) => (
+                        <div className={styles.item} key={result.id} onClick={()=> {onNavigate(result.id)}}>
+                            <div className={styles.searched__image}><img src={result.imagePath} alt="" /></div>
+                            <div className={styles.searched__text}>{shortenedName(result)}</div>
+                        </div>
+                    ))}
+                    </div>
+                )}
             </div>
             <div className={styles.language}>
                 <Link to={ROUTES.EN}>
@@ -129,7 +199,7 @@ const Header = () => {
                 
                 <Link to={ROUTES.CART} className={styles.cart}>
                     <img src={SHOPPINGCART} alt="shopping cart"/>
-                    <span className={styles.count}>2</span>
+                    <span className={styles.count}>{totalQuantity}</span>
                 </Link>
                  {/* {
                     localStorage.getItem('token') !== null ? (

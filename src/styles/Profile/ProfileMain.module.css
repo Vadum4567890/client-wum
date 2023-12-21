@@ -226,7 +226,7 @@
     margin: 0;
   }
   
-  .activeTab {
+  .tab {
     &::after,
     &::before {
         content: '';
@@ -235,25 +235,36 @@
         height: 14px;
         border-radius: 50px;
         bottom: -16px;
-       
+        transition: opacity 0.3s ease;
     }
 
     &::after {
         background-color: #F34A25;
-        left: 60px;
-       
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        
     }
+
 
     &::before {
         background-color: #fff;
         border: 1px solid #F34A25;
-        left: 470px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 10px;
         height: 10px;
         bottom: -15px;
     }
 }
-
+.activeTab {
+    &::after {
+        opacity: 1;
+    }
+    &::before {
+        opacity: 0;
+    }
+}
   
   .line {
     margin-top: 8px;

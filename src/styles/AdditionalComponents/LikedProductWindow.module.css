@@ -26,14 +26,14 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 100px;
 }
 
 .imageblock {
     display: flex;
     width: 120px;
     height: 120px;
-    background-color: gray;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .imageblock img {
@@ -44,7 +44,10 @@ li {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-
+  
+}
+.block a {
+    color: black;
 }
 .title {
     padding: 10px;
@@ -54,7 +57,11 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
+ 
 }
 .close {
     margin-right: 10px;
+}
+.price {
+    color: red;
 }

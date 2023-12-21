@@ -12,20 +12,22 @@ import { getCategories } from '../../features/categories/categoriesSlice'
 import { getSubcategory } from '../../features/subcategories/subcategoriesSlice'
 
 const Category = () => {
-
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { list: categories, isLoading } = useSelector((state) => state.categories);
-  const { list: subcategories,  isLoading: subcategoriesLoading } = useSelector((state) => state.subcategories);
+  const { list: categories, isLoading: categoriesLoading } = useSelector((state) => state.categories);
+  const { list: subcategories, isLoading: subcategoriesLoading } = useSelector((state) => state.subcategories);
+  
   useEffect(() => {
     // Fetch all categories initially
     dispatch(getCategories());
   }, [dispatch]);
 
   useEffect(() => {
-    // Fetch subcategories based on the category ID
-    dispatch(getSubcategory(id));
-  }, [dispatch, id]);
+    // Fetch subcategories based on the category ID once categories are loaded
+    if (!categoriesLoading) {
+      dispatch(getSubcategory(id));
+    }
+  }, [dispatch, id, categoriesLoading]);
 
   const currentCategory = categories.find((category) => category.id === Number(id));
 

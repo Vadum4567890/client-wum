@@ -4,12 +4,20 @@ import styles from '../../../styles/MainProducts/Headphones.module.css'
 
 import HEADPHONES from '../../../images/products/BigHeadphones.png';
 
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../../utils/routes';
 import { useTranslation } from 'react-i18next';
 
+
+
+
 const Headphones = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const onNavigation = () => {
+        navigate("/1023/about")
+      }
+
   return (
     <>
         <div className={styles.content}>
@@ -17,7 +25,7 @@ const Headphones = () => {
                 <div className={styles.content__info_title}><p>{t('m_prod.headphones')}</p></div>
                 <div className={styles.content__info_name}><p>Sony WH-CH710N</p></div>
                 <div className={styles.content__info_button}>
-                    <button type="button">
+                    <button type="button" onClick={onNavigation}>
                         <p>{t('m_prod.look')}</p>
                     </button>
                 </div>

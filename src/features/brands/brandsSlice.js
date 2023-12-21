@@ -2,12 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios";
 import { CATALOG_URL } from "../../utils/constants";
 
-export const getCategories = createAsyncThunk('Categories', 
+export const getBrands = createAsyncThunk('Brands', 
     async(_, thunkApi) => {
         try {
-            const res = await axios(`${CATALOG_URL}/Categories/GetAllCategories`,{
-                params: {ParentId: 0}
-            });
+            const res = await axios(`${CATALOG_URL}/Products/GetAllBrands`);
+            console.log(res.data);
             return res.data;
             
         } catch(err) {
@@ -18,26 +17,26 @@ export const getCategories = createAsyncThunk('Categories',
 );
 
 
-const categoriesSlice = createSlice({
-    name: 'Categories',
+const brandsSlice = createSlice({
+    name: 'Brands',
     initialState: {
-        list: [],
+        brands: [],
         isLoading: false,
     },
     extraReducers: (builder) => {
-        builder.addCase(getCategories.pending, (state) => {
+        builder.addCase(getBrands.pending, (state) => {
             state.isLoading = true;
         });
-        builder.addCase(getCategories.fulfilled, (state, {payload}) => {
-            state.list = payload;
+        builder.addCase(getBrands.fulfilled, (state, {payload}) => {
+            state.brands = payload;
             state.isLoading = false;
         })
-        builder.addCase(getCategories.rejected, (state) => {
+        builder.addCase(getBrands.rejected, (state) => {
             state.isLoading = false;
         });
        
     }
 })
 
-export default categoriesSlice.reducer;
+export default brandsSlice.reducer;
 

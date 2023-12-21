@@ -5,13 +5,17 @@ import TRIANGLE from '../../../images/additional/triangle.svg';
 import TRIANGLE2 from '../../../images/additional/triangle2.svg';
 import HOTWOMAN from '../../../images/products/hotwoman.png';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../utils/routes';
 import { useTranslation } from 'react-i18next';
 
 
 const Jacket = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const onNavigation = () => {
+        navigate("/1025/about")
+      }
   return (
     <>
         <div className={styles.container}>
@@ -45,7 +49,7 @@ const Jacket = () => {
                         </div>
                     </div>
                     <div className={styles.secondblock__button}>
-                        <button type='button'>
+                        <button type='button' onClick={onNavigation}>
                             <p>{t('m_prod.look')}</p>
                         </button>
                     </div>

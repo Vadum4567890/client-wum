@@ -1,0 +1,217 @@
+.container {
+    width: 100%;
+    width: 841px;
+    margin: 0 auto;
+}
+
+.title h1{
+    color: #000;
+
+font-family: "Montserrat";
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+.order {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    box-shadow: 0px 8px 24px 0px rgba(129, 135, 189, 0.15);
+}
+
+.order__image {
+    width: 300px;
+    height: 231px;
+    background: lightgray;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order__info {
+    padding: 15px 15px;
+    width: 100%;
+    box-shadow: 0px 8px 24px 0px rgba(129, 135, 189, 0.15);
+}
+
+.order__info__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.order__info__main h2{
+    color: black;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.order__info__main p{
+    color: #777777;
+    font-size: 0.9rem;
+}
+
+.order__info__rate {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.order__info__text p{
+    color: red;
+    font-size: 0.9rem;
+}
+
+.order__info__details h3 a{
+    color: red;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.order__info__center {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.oreder__info__price p{
+    color: black;
+    font-size: 0.8rem;
+}
+.oreder__info__price p:first-child {
+    text-decoration: line-through;
+}
+
+.oreder__info__price span{
+    color: red;
+    font-size: 1rem;
+}
+
+.order__info__sum h1{
+    color: black;
+    font-size: 1rem;
+}
+
+.order__info__footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.order__info__id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px    ;
+}
+
+.order__info__id p {
+    color: black;
+    
+}
+
+.order__info__button button {
+    background: orange;
+    padding: 10px 10px;
+    font-weight: 500;
+    color: white;
+    border-radius: 80px;
+}
+
+.order__info__button button {
+    background: red;
+    padding: 10px 10px;
+    font-weight: 500;
+    color: white;
+    border-radius: 80px;
+}
+
+.order__info__button button {
+    background: #F79E1B;
+    padding: 10px 10px;
+    color: white;
+    border-radius: 80px;
+    opacity: 50%;
+    color: #FFF;
+
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.popup {
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.copyMessageContainer {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 9;
+  }
+  
+  .copyMessage {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+.nav {
+    width: 100%;
+    margin-top: 24px;
+}
+.nav__buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.nav__button {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 47px;
+    border: 1px solid #F34A25;
+    transition: 0.5s ease;
+}
+.nav__button button {
+    padding: 0px;
+    color: black;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.nav__button:hover {
+    background-color: #F34A25;
+}
+.nav hr {
+    border: 1px solid #F34A25;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border-color: #F34A25;
+    
+}
+
+.likebtn {
+    position: absolute;
+    right: 19.2px;
+    top: 23.4px;
+}

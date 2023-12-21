@@ -46,6 +46,7 @@
 .head__catalog {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   height: 40px;
   max-width: 1340px;
@@ -54,6 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 40px;
 }
 
 .head__title h1{
@@ -77,6 +79,12 @@
   flex-direction: row;
   align-items: center;
   gap: 20px;
+  margin-left: 30px;
+}
+
+.head__sort:hover {
+  zoom: 1.02;
+  background-color: #fb8f77;
 }
 
 .head__sort_triple {
@@ -109,7 +117,8 @@
 
 
 .head__sort{
-  width: 180px;
+  width: auto;
+  padding: 10px;
   height: 34px;
   display: flex;
   flex-direction: row;

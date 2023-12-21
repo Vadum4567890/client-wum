@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../features/user/userSlice";
 import ProfileMain from "./ProfileMain";
 import ProfileOrders from "./ProfileOrders";
+import ProfileLikes from "./ProfileLikes";
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
@@ -78,7 +79,7 @@ const Profile = () => {
                     <p>Мої замовлення</p>
                   </div>
               </div>
-              <div className={styles.nav__item}> 
+              <div onClick={handleTabChange("likes")} className={styles.nav__item}> 
                 <div className={styles.item__icon}>
                   <img src={LIKES} alt="orders" />
                 </div>
@@ -115,6 +116,7 @@ const Profile = () => {
           <div className={styles.data__block}>
             {activeTab === 'main' && <ProfileMain />}
             {activeTab === 'orders' && <ProfileOrders />}
+            {activeTab === 'likes' && <ProfileLikes />}
           </div>
         </div>
       ) : (

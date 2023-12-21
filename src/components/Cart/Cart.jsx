@@ -25,7 +25,7 @@ const Cart = () => {
     return array.reduce((total, currentItem) => {
       const { quantity, price } = currentItem;
       // Use nullish coalescing to provide a default value for price
-      const prs = (price ?? '').replace(/\s/g, '');
+      const prs = price;
       
       // Multiply quantity and price, and accumulate the result
       total += parseInt(quantity) * parseInt(prs);
@@ -36,7 +36,7 @@ const Cart = () => {
 
   const calculateTotalPrice = (item) => {
     const { quantity, price } = item;
-    const prs = (price ?? '').replace(/\s/g, '');
+    const prs = price
     let total = parseInt(quantity) * parseInt(prs);
     return total;
   };
@@ -53,15 +53,14 @@ const Cart = () => {
         <>
           <div className={styles.list}>
             {cart.map((item) => {
-              const { title, category, imageSrc, price, id, quantity } = item;
+              const { name, imagePath, uploadedFiles, price, id, quantity } = item;
               return (
                 <div className={styles.item} key={id}>
                   <div
                     className={styles.image}
-                    ><img src={imageSrc} alt="" /></div>
+                    ><img src={imagePath || uploadedFiles.filePath} alt="" /></div>
                   <div className={styles.info}>
-                    <h3 className={styles.name}>{title}</h3>
-                    {/* <div className={styles.category}>{category.name}</div> */}
+                    <h3 className={styles.name}>{name}</h3>
                   </div>
 
                   <div className={styles.price}>{calculateTotalPrice}</div>
@@ -94,9 +93,9 @@ const Cart = () => {
                         />
                       </svg>
                     </div>
-                  </div>
+                  </div> 
 
-                  <div className={styles.total}>{calculateTotalPrice(item)}$</div>
+                  <div className={styles.total}>{calculateTotalPrice(item)}₴</div>
 
                   <div
                     className={styles.close}
@@ -114,7 +113,7 @@ const Cart = () => {
             <div className={styles.total}>
               TOTAL PRICE:{" "}
               <span>
-                {sumBy(cart) }$
+                {sumBy(cart) }₴
               </span>
             </div>
 

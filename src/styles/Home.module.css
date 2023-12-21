@@ -50,14 +50,11 @@
     flex: 1;
     justify-content: center;
 }
-.product_image image {
-    width: 148px;
-    height: 162px;
+.product_image img {
+    max-width: 200px;
+    max-height: 200px;
 }
 
-.topsells__product__img {
-    position: relative;
-}
 
 .topsells__product__star {
     margin-left: 8px;
@@ -73,7 +70,7 @@
 }
 
 .topsells__product__img {
-    padding: 25px 43px 40px 42px;
+    position: relative;
     width: 233px;
     height: 202px;
     display: flex;

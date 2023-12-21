@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { BASE_URL } from "../../utils/constants";
+import { USER_URL } from "../../utils/constants";
 import { jwtDecode } from "jwt-decode";
+
+export const selectLikedProductIds = (state) => state.user.likes || [];
 
 export const createUser = createAsyncThunk(
   "users/createUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`${BASE_URL}/Auth/Register`, payload);
+      const res = await axios.post(`${USER_URL}/Auth/Register`, payload);
       let receivedAccessToken = res.data.token;
       let receivedRefreshToken = res.data.refreshToken;
       localStorage.setItem('refreshToken', receivedRefreshToken);
@@ -28,6 +30,7 @@ export const createUser = createAsyncThunk(
     }
   }
 );
+
 //check jwt token
 export const setAuthToken = token => {
   if (token) {
@@ -41,7 +44,7 @@ export const loginUser = createAsyncThunk(
   "users/loginUser",
   async (payload, thunkAPI) => {
     try {
-      const res = await axios.post(`${BASE_URL}/Auth/Login`, payload);
+      const res = await axios.post(`${USER_URL}/Auth/Login`, payload);
       setAuthToken(res.data.token);
      
       localStorage.setItem('refreshToken', res.data.refreshToken);
@@ -55,8 +58,10 @@ export const loginUser = createAsyncThunk(
       // Return user data
       return res.data;
     } catch (err) {
-      console.log(err);
-      return thunkAPI.rejectWithValue(err);
+      return thunkAPI.rejectWithValue({
+        message: err.message,
+        code: err.code,
+      });
     }
   }
 );
