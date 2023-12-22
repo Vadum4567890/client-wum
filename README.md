@@ -7,7 +7,6 @@ Here is technologies which were used:
 - GRPC, REST API
 - MS SQL SERVER:
 
-Home page:
   ![image](https://github.com/Vadum4567890/client-wum/assets/13348644/31dfb458-b967-403f-bb7a-55be6cfb4a33)
 
 Catalog:
