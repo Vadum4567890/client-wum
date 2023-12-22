@@ -7,7 +7,6 @@ import EDIT from "../../images/profile/edit.svg";
 import USER from "../../images/profile/user.svg";
 import ORDERS from "../../images/profile/orders.svg";
 import LIKES from "../../images/profile/likes.svg";
-import INNOCHKA from "../../images/profile/Innochka.JPG";
 import REVIEWED from "../../images/profile/reviewed.svg";
 import NOTIFICATIONS from "../../images/profile/Notification.svg";
 import LEAVE from "../../images/profile/logout.svg";
@@ -111,7 +110,6 @@ const Profile = () => {
                   </div>
               </div>
             </div>
-            {/* <img src={INNOCHKA} style={{width:'300px', border: '10px solid black', borderRadius:"50px"}} alt="innochka" /> */}
           </div>
           <div className={styles.data__block}>
             {activeTab === 'main' && <ProfileMain />}

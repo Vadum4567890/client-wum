@@ -1,43 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styles from '../../styles/Home.module.css';
-import { products } from '../../features/productsData';
 import Product from '../Product/Product';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../features/products/productsSlice';
-import { FidgetSpinner } from 'react-loader-spinner';
-
 
 
 const TopSells = ({products, isLoading }) => {
 
-  // const dispatch = useDispatch();
-  // console.log(list);
   const { t } = useTranslation();
 
-  // const products = useSelector((state) => state.products.products.items);
-  // const isLoading = useSelector((state) => state.products.isLoading);
-
-
-  // if (isLoading && !products.length) {
-  //   return (
-  //     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-  //       <FidgetSpinner
-  //         visible={true}
-  //         height="25%"
-  //         width="25%"
-  //         ariaLabel="dna-loading"
-  //         wrapperStyle={{}}
-  //         wrapperClass="dna-wrapper"
-  //         ballColors={['#ff0000', '#00ff00', '#0000ff']}
-  //         backgroundColor="#F4442E"
-  //       />
-  //     </div>
-  //   );
-  // }
-
+  
   if (isLoading || !products) {
-    return <div>Loading...</div>; // or your loading indicator
+    return <div>Loading...</div>; 
   }
 
 

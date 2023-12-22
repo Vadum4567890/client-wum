@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../../../styles/AdditionalComponents/Accordion.module.css';
 import TICK from '../../../images/TICKB.svg';
-const Accordion = ({ items }) => {
+const Accordion = ({ items, onFilterChange  }) => {
   const [openIndex, setOpenIndex] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState({});
 
@@ -15,7 +15,10 @@ const Accordion = ({ items }) => {
       [itemTitle]: option,
     }));
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
-    console.log(itemTitle,option);
+  
+    if (onFilterChange && itemTitle === 'Бренди') {
+      onFilterChange('brand', option);
+    }
   };
 
   return (

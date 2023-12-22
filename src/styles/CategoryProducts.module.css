@@ -146,7 +146,7 @@
   flex-direction: row;
   gap: 29px;
   margin-top: 26px;
-  
+  position: relative;
   padding: 40px;
 }
 .products {
@@ -188,7 +188,6 @@
   width: calc(25% - 10px); /* Adjust the width based on your design */
 
 }
-
 
 
 .products.tripleLayout .product {

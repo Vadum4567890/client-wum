@@ -22,11 +22,12 @@
   import STAR2 from '../../images/catalog/product/icons/yellowStar.svg'
 
 
-  import { Link, useParams } from 'react-router-dom';
+  import { useParams } from 'react-router-dom';
   import { useDispatch, useSelector } from 'react-redux';
   import { getProduct } from '../../features/products/productsSlice';
   import { FidgetSpinner } from 'react-loader-spinner';
   import { addItemToCart, toggleForm } from '../../features/user/userSlice';
+import { getBrands } from '../../features/brands/brandsSlice';
 
 
   const ProductAbout = () => {
@@ -36,12 +37,16 @@
     const isLoading = useSelector((state) => state.products.isLoading);
     const [showFullDescription, setShowFullDescription] = useState(false);
     const { currentUser } = useSelector(({user})=> user);
-   
+    const brands = useSelector((state) => state.brands.brands);
+    const brand = product && Array.isArray(brands) ? brands.find((brand) => brand.id === product.brandId) : null;
+    const brandTitle = brand ? brand.title : "Unknown Brand";
+ 
     const handleClick = () => {
         if (!currentUser) dispatch(toggleForm(true));
     }
     useEffect(() => {
       dispatch(getProduct(id));
+      dispatch(getBrands());
       window.scrollTo(100, 100);
     }, [dispatch, id]);
     console.log(product);
@@ -51,11 +56,11 @@
       setShowFullDescription(!showFullDescription);
     };
     const addToCart = (product) => {
-      console.log('Adding to cart:', product);
       dispatch(addItemToCart(product));
     }
 
-    if (isLoading && product === undefined || (Array.isArray(product) && product.length === 0)) {
+    if ((isLoading && product === undefined) || (Array.isArray(product) && product.length === 0)) {
+
       // If the data is still loading, show a spinner
       return (
        <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
@@ -161,20 +166,16 @@
                   </button>
                 )}
               </div>
+        
               <div className={styles.product__info_details}>
-                <div>
-                  <p>Діагональ екрана <span>............................................</span></p>
-                  <p>Тип екрана <span>...........................................................</span></p>
-                  <p>Чистота оновлення екрану<span>......................</span></p>
-                  <p>Роздільня здатність<span>........................................</span></p>
-                  <p>Покриття екрану<span>..............................................</span></p>
-                </div>
-                <div>
-                  <p className={styles.gray}>15.6 (2560х1440) яWQHD</p>
-                  <p className={styles.gray}>IPS</p>
-                  <p className={styles.gray}>165 Гц</p>
-                  <p className={styles.gray}>2560х1440</p>
-                  <p className={styles.gray}>Матове</p>
+                <div className={styles.product__attributes}>
+                {product.attributes.map((attribute) => (
+    <div key={attribute.attributeId} className={styles.attribute}>
+      <p className={styles.gray}>{attribute.attribute.title}</p>
+      <span>............................</span>
+      <p className={styles.gray}>{attribute.value}</p>
+    </div>
+  ))}
                 </div>
               </div>
           </div>
@@ -206,7 +207,7 @@
             <div className={styles.product__detail_sellblock}>
               <div className={styles.product__detail_seller}>
                   <div>
-                    <p>Продавець: <span>Zelezo</span></p>
+                    <p>Продавець: <span>{brandTitle}</span></p>
                     <div className={styles.product__detail_marks}>
                       <p><img src={STAR} alt='star'/><span>4,9</span> (39 оцінок) </p>
                     </div>

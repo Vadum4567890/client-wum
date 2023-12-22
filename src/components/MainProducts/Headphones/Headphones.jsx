@@ -4,7 +4,7 @@ import styles from '../../../styles/MainProducts/Headphones.module.css'
 
 import HEADPHONES from '../../../images/products/BigHeadphones.png';
 
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ROUTES } from '../../../utils/routes';
 import { useTranslation } from 'react-i18next';
 

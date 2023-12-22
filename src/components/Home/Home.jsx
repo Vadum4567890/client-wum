@@ -16,16 +16,12 @@ const Home = () => {
   const products  = useSelector((state) => state.products.products.items);
   const { isLoading } = useSelector((state) => state.products);
   useEffect(() => {
-    // if (!products || products.length < 5) {
-    //   dispatch(getProducts());
-    // }
     dispatch(getProducts());
   }, [dispatch]);
 
   if (isLoading && !products) {
     return (
       <div className={styles.App}>
-        {/* Replace this with your desired loading indicator component */}
         <FidgetSpinner
           visible={true}
           height="25%"

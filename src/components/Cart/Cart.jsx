@@ -7,6 +7,11 @@ import {
 
 import styles from "../../styles/Cart.module.css";
 import TRASH from "../../images/additional/Trash.svg";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/routes";
+import PLUS from "../../images/additional/plus.svg";
+import MINUS from "../../images/additional/minus.svg";
+
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -14,7 +19,6 @@ const Cart = () => {
 
   const changeQuantity = (item, quantity) => {
     dispatch(addItemToCart({ ...item, quantity }));
-    console.log("Total:", sumBy(cart));
   };
 
   const removeItem = (id) => {
@@ -24,12 +28,7 @@ const Cart = () => {
   const sumBy = (array) => {
     return array.reduce((total, currentItem) => {
       const { quantity, price } = currentItem;
-      // Use nullish coalescing to provide a default value for price
-      const prs = price;
-      
-      // Multiply quantity and price, and accumulate the result
-      total += parseInt(quantity) * parseInt(prs);
-      
+      total += parseInt(quantity) * parseInt(price);
       return total;
     }, 0);
   };
@@ -53,7 +52,7 @@ const Cart = () => {
         <>
           <div className={styles.list}>
             {cart.map((item) => {
-              const { name, imagePath, uploadedFiles, price, id, quantity } = item;
+              const { name, imagePath, uploadedFiles, id, quantity } = item;
               return (
                 <div className={styles.item} key={id}>
                   <div
@@ -63,7 +62,7 @@ const Cart = () => {
                     <h3 className={styles.name}>{name}</h3>
                   </div>
 
-                  <div className={styles.price}>{calculateTotalPrice}</div>
+                  <div className={styles.price}>{calculateTotalPrice(item)}</div>
 
                   <div className={styles.quantity}>
                     <div
@@ -72,11 +71,7 @@ const Cart = () => {
                         changeQuantity(item, Math.max(1, quantity - 1))
                       }
                     >
-                      <svg className="icon">
-                        <use
-                          xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#minus`}
-                        />
-                      </svg>
+                      <img className="icon" src={MINUS} alt="minus" />
                     </div>
 
                     <span>{quantity}</span>
@@ -87,11 +82,7 @@ const Cart = () => {
                         changeQuantity(item, Math.max(1, quantity + 1))
                       }
                     >
-                      <svg className="icon">
-                        <use
-                          xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#plus`}
-                        />
-                      </svg>
+                      <img className="icon" src={PLUS} alt="plus" />
                     </div>
                   </div> 
 
@@ -110,14 +101,14 @@ const Cart = () => {
           </div>
 
           <div className={styles.actions}>
-            <div className={styles.total}>
-              TOTAL PRICE:{" "}
+            <div className={styles.totals}>
+              <p>TOTAL PRICE:{" "}</p>
               <span>
                 {sumBy(cart) }₴
               </span>
             </div>
 
-            <button className={styles.proceed}>Proceed to checkout</button>
+            <button className={styles.proceed}><Link to={ROUTES.CHECKOUT}>Proceed to checkout</Link></button>
           </div>
         </>
       )}

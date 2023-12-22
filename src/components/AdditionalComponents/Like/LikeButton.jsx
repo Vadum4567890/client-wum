@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import likeIcon from '../../../images/additional/fullheart.svg'; // Замініть це на шлях до вашої іконки "Like"
 import unlikeIcon from '../../../images/additional/emptyheart.svg'; // Замініть це на шлях до вашої іконки "Unlike"
 import styles from '../../../styles/AdditionalComponents/LikeButton.module.css';

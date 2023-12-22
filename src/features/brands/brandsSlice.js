@@ -6,7 +6,6 @@ export const getBrands = createAsyncThunk('Brands',
     async(_, thunkApi) => {
         try {
             const res = await axios(`${CATALOG_URL}/Products/GetAllBrands`);
-            console.log(res.data);
             return res.data;
             
         } catch(err) {

@@ -1,17 +1,13 @@
   import React from 'react'
   import styles from "../../styles/ProductPage.module.css";
 
-  import { NavLink} from 'react-router-dom';
-
-
-
 
   const ProductHead = ({id, activeTab, onTabChange}) => {
     const tabs = ['about', 'characteristics', 'reviews', 'questions', 'dualbuy'];
 
-    const getPointIndex = (tab) => {
-      return tabs.indexOf(tab);
-    };
+    // const getPointIndex = (tab) => {
+    //   return tabs.indexOf(tab);
+    // };
     return (
       <>
       <div className={styles.product__category}>

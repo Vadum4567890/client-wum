@@ -3,7 +3,6 @@ import styles from '../../../styles/Profile/ProfileOrders.module.css'
 import { Link } from 'react-router-dom'
 import LikeButton from '../Like/LikeButton'
 import StarRate from '../StarRate/StarRate'
-import { products } from '../../../features/productsData'
 import OrderStatusButtonWithLogic from '../OrderStatusButtonWithLogic/OrderStatusButtonWithLogic'
 import COPY from '../../../images/additional/copy.svg'
 
@@ -25,7 +24,6 @@ const Order = ({order}) => {
   
     const handleCopyId = () => {
       navigator.clipboard.writeText(order.id).then(() => {
-        // Update state to indicate successful copy
         setCopied(true);
       });
     };

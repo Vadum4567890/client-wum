@@ -1,0 +1,30 @@
+.successpage {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+    color: black;
+}
+
+.successpage a {
+    margin-top: 20px;
+    width: 340px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    padding: 10px;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.successpage a p {
+    color: black;
+    border: 3px solid black;
+    padding: 10px;
+    border-radius: 25PX;
+}
+.successpage p:last-child {
+    font-size: 25px;
+}

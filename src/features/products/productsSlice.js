@@ -5,10 +5,10 @@ import { CATALOG_URL } from "../../utils/constants";
 export const selectProducts = (state) => state.products.products || [];
 
 export const getProducts = createAsyncThunk('products/products', 
-    async(idcategory, limit, thunkApi) => {
+    async(idcategory, selectedBrand, thunkApi) => {
         try {
             const res = await axios(`${CATALOG_URL}/Products/FindAllProducts`,{
-                params: {categoryId: idcategory, limit:limit}
+                params: {categoryId: idcategory, brandId: selectedBrand}
             });
             return res.data;
         } catch(err) {

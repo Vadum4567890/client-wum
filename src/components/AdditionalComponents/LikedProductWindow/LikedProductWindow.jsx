@@ -8,34 +8,29 @@ import { getProducts, selectProducts } from '../../../features/products/products
 import { selectLikedProductIds } from '../../../features/user/userSlice';
 
 const LikedProductsWindow = ({ isOpen }) => {
- const dispatch = useDispatch();
-  //   const likedProductIds = useSelector((state) => state.user.likes);
-  //   console.log(likedProductIds);
-  //   const products = (dispatch(getProducts));
-  //   const liked = products.includes(likedProductIds.id);
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    const dispatch = useDispatch();
     const likedProductIds = useSelector(selectLikedProductIds)
     const products = useSelector(selectProducts)
+    useEffect(() => {
+      dispatch(getProducts());
+    }, [dispatch]);
+
+   
     
- // Check if products is undefined or null
- if (!products || !products.items) {
-  console.error('Products data is not available');
-  return null; // or display a loading state
-}
+    // Check if products is undefined or null
+    if (!products || !products.items) {
+      console.error('Products data is not available');
+      return null; // or display a loading state
+    }
 
     const likedProducts = products.items.filter((product) => likedProductIds.includes(product.id));
-   
 
-    
   return (
     <div className={styles.block} style={{ display: isOpen ? 'block' : 'none' }}>
        <div className={styles.block__info}>
         <div className={styles.title}><h2  onClick={(e) => e.stopPropagation()}>Вподобані</h2></div>
         <div className={styles.close}><img src={CLOSE} alt='close'/></div>
        </div>
-      {/* Display your liked products here */}
       <Link to={ROUTES.PROFILE}>
       <ul>
         {likedProducts.map((product) => (

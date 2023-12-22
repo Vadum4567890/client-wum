@@ -12,7 +12,7 @@ import HEART from '../../images/header/Heart.svg';
 import ACCOUNT from '../../images/header/User.svg';
 import LOCATION from '../../images/header/Location.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, toggleForm } from '../../features/user/userSlice';
+import { toggleForm } from '../../features/user/userSlice';
 import UserForm from '../User/UserForm';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
@@ -28,7 +28,14 @@ const Header = () => {
     const { currentUser } = useSelector(({user})=> user);
     const { cart } = useSelector(({ user }) => user);
     const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
-    
+    const location = useLocation(); // Використовуємо useLocation для отримання поточного шляху
+    const [searchText, setSearchText] = useState(''); // Стан для відстеження тексту пошуку
+    const [, setSearchResults] = useState([]);
+    const [, setIsFocused] = useState(false);
+    const searchedProducts = useSelector((state) => state.products.searchedProducts);
+    const [likedProductsWindowOpen, setLikedProductsWindowOpen] = useState(false);
+
+
     const handleClick = () => {
         if (!currentUser) dispatch(toggleForm(true));
     }
@@ -38,23 +45,8 @@ const Header = () => {
       setSelectedLanguage(language);
     };
 
-    // const handleLogout = () => {
-    //     try {
-    //       dispatch(logOut());
-    //       navigate("/")
-    //       window.location.reload();
-    //     } catch (error) {
-    //       console.error("Error during logout:", error);
-    //       navigate("/")
-    //     }
-    //   };
 
-
-
-      // Like
-
-      const [likedProductsWindowOpen, setLikedProductsWindowOpen] = useState(false);
-
+  
   const handleLikedProductsClick = () => {
     setLikedProductsWindowOpen((prevOpen) => !prevOpen);
   };
@@ -65,13 +57,7 @@ const Header = () => {
 
 
 
-  const location = useLocation(); // Використовуємо useLocation для отримання поточного шляху
   
-  const [searchText, setSearchText] = useState(''); // Стан для відстеження тексту пошуку
-  const [searchResults, setSearchResults] = useState([]);
-  const [isFocused, setIsFocused] = useState(false);
-  const searchedProducts = useSelector((state) => state.products.searchedProducts);
-
   const handleFocus = () => {
     setIsFocused(true);
   };
@@ -88,7 +74,6 @@ const Header = () => {
     const text = event.target.value;
     setSearchText(text);
     try {
-        // Dispatch the getSearchedProducts action with the search text
         dispatch(getSearchedProducts(text));
       } catch (error) {
         console.error('Error searching for products:', error);
@@ -97,7 +82,7 @@ const Header = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     console.log('Searching for:', searchText);
-    setSearchResults([]); // Очищаємо попередні результати (поки що)
+    setSearchResults([]);
   };
   const handleClearSearch = () => {
     dispatch(clearSearchedProducts());
@@ -201,15 +186,7 @@ const Header = () => {
                     <img src={SHOPPINGCART} alt="shopping cart"/>
                     <span className={styles.count}>{totalQuantity}</span>
                 </Link>
-                 {/* {
-                    localStorage.getItem('token') !== null ? (
-                        <button style={{ color: 'red' }} onClick={handleLogout}>
-                        {t('header.logout')}
-                        </button>
-                    ) : (
-                        <></>
-                    )
-                } */}
+            
             </div>
         </div>
     </div>

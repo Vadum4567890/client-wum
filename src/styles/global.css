@@ -87,7 +87,7 @@ li {
 }
 
 section {
-  background: var(--dark);  
+  /* background: var(--dark);   */
 }
 
 button {

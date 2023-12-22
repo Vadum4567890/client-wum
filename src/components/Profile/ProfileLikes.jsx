@@ -2,7 +2,6 @@ import React from 'react'
 import styles from '../../styles/Profile/ProfileLikes.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import CLOSE from '../../images/additional/close.svg'
-import { products } from '../../features/productsData';
 import { addItemToCart, selectLikedProductIds, toggleLike } from '../../features/user/userSlice';
 import StarRate from '../AdditionalComponents/StarRate/StarRate';
 import { Link, NavLink } from 'react-router-dom';

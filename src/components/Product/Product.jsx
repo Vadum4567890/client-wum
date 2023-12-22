@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from '../../styles/Home.module.css';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../utils/routes';
 import StarRate from '../AdditionalComponents/StarRate/StarRate';
 import LikeButton from '../AdditionalComponents/Like/LikeButton';
 import BUYBTN from '../../images/products/buyproduct.svg';

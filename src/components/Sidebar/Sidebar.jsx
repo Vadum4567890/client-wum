@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategories } from '../../features/categories/categoriesSlice';
-import { ROUTES } from '../../utils/routes';
 import { Audio } from 'react-loader-spinner';
 import styles from '../../styles/Aside.module.css';
 

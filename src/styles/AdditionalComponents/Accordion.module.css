@@ -20,11 +20,12 @@
   
   .open {
     background-color: gray;
+    
   }
  
 
   .content {
-    
+    max-height: 100px;
   }
   
   .header::after {
@@ -44,4 +45,8 @@
   }
 
 
+  .content ul {
+    height: 70px;
+  }
   
+ 
